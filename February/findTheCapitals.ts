@@ -4,6 +4,10 @@
 
 export function capitals(word: string): number[] {
 	// Write your code here
-
-	return [] as number[];
+	return word.split("").reduce((acc, curr, index): Array<number> => {
+		if (curr === curr.toUpperCase()) {
+			acc.push(index);
+		}
+		return acc;
+	}, [] as number[]);
 }
