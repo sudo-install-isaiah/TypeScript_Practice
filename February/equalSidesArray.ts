@@ -28,4 +28,12 @@
 
 export function findEvenIndex(arr: number[]): number {
 	//Code goes here!
+	for (let i = 0; i < arr.length; i++) {
+		let leftSide = arr.slice(0, i).reduce((acc, curr) => acc + curr, 0);
+		let rightSide = arr.slice(i + 1).reduce((acc, curr) => acc + curr, 0);
+		if (leftSide === rightSide) {
+			return i;
+		}
+	}
+	return -1;
 }
