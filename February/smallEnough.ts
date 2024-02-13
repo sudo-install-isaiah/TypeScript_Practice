@@ -3,5 +3,7 @@
 // You can assume all values in the array are numbers.
 
 export function smallEnough(a: number[], limit: number): boolean {
-	return;
+	return !a.some(num => {
+		return num > limit;
+	});
 }
