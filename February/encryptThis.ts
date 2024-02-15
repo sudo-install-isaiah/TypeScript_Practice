@@ -10,19 +10,24 @@
 
 export const encryptThis = (str: string): string => {
 	// Your code goes here
-	const words = str.split(" ");
-	return words
-		.map((char, index) => {
-			if (index === 0) {
-				return char.charCodeAt(0);
-			}
-			if (index === 1) {
-				return words[words.length - 1];
-			}
-			if (index === words.length - 1) {
-				return words[1];
-			}
+	return str
+		.split(" ")
+		.map(word => {
+			return word
+				.split("")
+				.map((letter, index) => {
+					if (index === 0) {
+						return letter.charCodeAt(0).toString();
+					}
+					if (index === 1) {
+						return word[word.length - 1];
+					}
+					if (index === word.length - 1) {
+						return word[1];
+					}
+					return letter;
+				})
+				.join("");
 		})
 		.join(" ");
-
 };
