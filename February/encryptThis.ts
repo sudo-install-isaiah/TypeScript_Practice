@@ -8,8 +8,21 @@
 // encryptThis "good" == "103doo"
 // encryptThis "hello world" == "104olle 119drlo"
 
-
 export const encryptThis = (str: string): string => {
 	// Your code goes here
-	return str;
+	const words = str.split(" ");
+	return words
+		.map((char, index) => {
+			if (index === 0) {
+				return char.charCodeAt(0);
+			}
+			if (index === 1) {
+				return words[words.length - 1];
+			}
+			if (index === words.length - 1) {
+				return words[1];
+			}
+		})
+		.join(" ");
+
 };
