@@ -10,4 +10,16 @@
 
 export function solve(s: string) {
 	// your code here
+	let lowerCaseCount = 0;
+	let upperCaseCount = 0;
+
+	Array.from(s).forEach(char => {
+		if (char === char.toLowerCase()) {
+			lowerCaseCount++;
+		} else {
+			upperCaseCount++;
+		}
+	});
+
+	return lowerCaseCount >= upperCaseCount ? s.toLowerCase() : s.toUpperCase();
 }
