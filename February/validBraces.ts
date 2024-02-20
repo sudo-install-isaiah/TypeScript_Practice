@@ -15,5 +15,35 @@
 // "[({})](]" =>  False
 
 export function validBraces(braces: string): boolean {
+	let isValid = true;
 	const bracesArray = braces.split("");
+	bracesArray.forEach((brace, index) => {
+		switch (brace) {
+			case "(":
+				if (bracesArray[index + 1] !== ")") {
+					if (bracesArray[bracesArray.length - index] !== ")") {
+						isValid = false;
+					}
+				}
+				break;
+
+			case "[":
+				if (bracesArray[index + 1] !== "]") {
+					if (bracesArray[bracesArray.length - index] !== "]") {
+						isValid = false;
+					}
+				}
+				break;
+			case "{":
+				if (bracesArray[index + 1] !== "}") {
+					if (bracesArray[bracesArray.length - index] !== "}") {
+						isValid = false;
+					}
+				}
+				break;
+			default:
+				break;
+		}
+	});
+	return isValid;
 }
