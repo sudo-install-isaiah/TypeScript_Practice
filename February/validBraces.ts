@@ -15,35 +15,28 @@
 // "[({})](]" =>  False
 
 export function validBraces(braces: string): boolean {
-	let isValid = true;
 	const bracesArray = braces.split("");
-	bracesArray.forEach((brace, index) => {
-		switch (brace) {
-			case "(":
-				if (bracesArray[index + 1] !== ")") {
-					if (bracesArray[bracesArray.length - index] !== ")") {
-						isValid = false;
-					}
-				}
-				break;
 
-			case "[":
-				if (bracesArray[index + 1] !== "]") {
-					if (bracesArray[bracesArray.length - index] !== "]") {
-						isValid = false;
-					}
-				}
-				break;
-			case "{":
-				if (bracesArray[index + 1] !== "}") {
-					if (bracesArray[bracesArray.length - index] !== "}") {
-						isValid = false;
-					}
-				}
-				break;
-			default:
-				break;
+	let stack: Array<string> = [];
+	const pairs: { [key: string]: string } = {
+		"(": ")",
+		"[": "]",
+		"{": "}",
+	};
+	for (let i = 0; i < bracesArray.length; i++) {
+		if (
+			bracesArray[i] === "(" ||
+			bracesArray[i] === "[" ||
+			bracesArray[i] === "{"
+		) {
+			stack.push(bracesArray[i]);
+		} else {
+			let last: string | undefined = stack.pop();
+
+			if (last === undefined || pairs[last] !== bracesArray[i]) {
+				return false;
+			}
 		}
-	});
-	return isValid;
+	}
+	return stack.length === 0;
 }
