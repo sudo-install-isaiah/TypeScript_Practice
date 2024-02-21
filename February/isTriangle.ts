@@ -13,4 +13,6 @@
 // 0,2,3 -> false
 // 1,2,9 -> false
 
-export function isTriangle(a: number, b: number, c: number): boolean {}
+export function isTriangle(a: number, b: number, c: number): boolean {
+	return a + b > c && a + c > b && b + c > a;
+}
