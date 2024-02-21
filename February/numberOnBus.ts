@@ -11,4 +11,11 @@
 // The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.
 export function number(busStops: [number, number][]): number {
 	// Your Code
+	let total = 0;
+
+	busStops.forEach(stop => {
+		total += stop[0] - stop[1];
+	});
+
+	return total;
 }
