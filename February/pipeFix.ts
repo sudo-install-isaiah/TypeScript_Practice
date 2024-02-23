@@ -12,5 +12,13 @@
 // Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8
 
 export function pipeFix(numbers: number[]): number[] {
-	return [];
+	const min = numbers[0];
+	const max = numbers[numbers.length - 1];
+	const result: number[] = [];
+
+	for (let i = min; i <= max; i++) {
+		result.push(i);
+	}
+
+	return result;
 }
