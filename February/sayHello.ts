@@ -10,5 +10,5 @@ export const sayHello = (
 	city: string,
 	state: string
 ): string => {
-	return "";
+	return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`;
 };
