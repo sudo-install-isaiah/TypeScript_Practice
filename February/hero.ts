@@ -3,5 +3,5 @@
 // Return true if yes, false otherwise :)
 
 export function hero(bullets: number, dragons: number): boolean {
-	return true;
+	return bullets >= dragons * 2;
 }
