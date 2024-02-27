@@ -7,5 +7,5 @@
 // mango(9, 5) ==> 30   # 6 mangoes for $5 per unit = $30; +3 mangoes for free
 
 export function mango(quantity: number, price: number): number {
-	return 1;
+	return (quantity - Math.floor(quantity / 3)) * price;
 }
