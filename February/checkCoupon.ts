@@ -17,5 +17,8 @@ export function checkCoupon(
 	currentDate: string,
 	expirationDate: string
 ): boolean {
-	// TODO: code me
+	return (
+		enteredCode === correctCode &&
+		new Date(currentDate) <= new Date(expirationDate)
+	);
 }
