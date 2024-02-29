@@ -1,4 +1,4 @@
-//  have a cat and a dog.
+// I have a cat and a dog.
 
 // I got them at the same time as kitten/puppy. That was humanYears years ago.
 
@@ -21,6 +21,10 @@
 export function humanYearsCatYearsDogYears(
 	humanYears: number
 ): [number, number, number] {
+	let catYears =
+		humanYears >= 1 ? (humanYears >= 2 ? 24 + (humanYears - 2) * 4 : 15) : 0;
+	let dogYears =
+		humanYears >= 1 ? (humanYears >= 2 ? 24 + (humanYears - 2) * 5 : 15) : 0;
 	// Your code here!
-	return [0, 0, 0];
+	return [humanYears, catYears, dogYears];
 }
