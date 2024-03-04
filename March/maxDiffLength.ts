@@ -16,14 +16,19 @@ export const mxdiflg = (a1: string[], a2: string[]): number => {
 	if (a1.length === 0 || a2.length === 0) return -1;
 
 	let maxLengthA1 = 0;
+	let minLengthA1 = Infinity;
 	let maxLengthA2 = 0;
+	let minLengthA2 = Infinity;
 
 	a1.forEach(str => {
 		if (str.length > maxLengthA1) maxLengthA1 = str.length;
+
+		if (str.length < minLengthA1) minLengthA1 = str.length;
 	});
 	a2.forEach(str => {
 		if (str.length > maxLengthA2) maxLengthA2 = str.length;
+		if (str.length < minLengthA2) minLengthA2 = str.length;
 	});
 
-	return Math.abs(maxLengthA1 - maxLengthA2);
+	return Math.max(maxLengthA1 - minLengthA2, maxLengthA2 - minLengthA1);
 };
