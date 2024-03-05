@@ -6,4 +6,4 @@
 // contains a digit
 // only contains alphanumeric characters (note that '_' is not alphanumeric)
 
-export const REGEX = 
+export const REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
