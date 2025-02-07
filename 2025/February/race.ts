@@ -13,6 +13,18 @@ export function race(
 ): [number, number, number] | null {
 	if (v1 >= v2) return null;
 
-	const speedDiffPerHr = v2 - v1; //130
-	const speedDiffPerctentage = speedDiffPerHr / v2;
+	const speedDiffPerHr = v2 - v1; // 130
+	const speedDiffPerctentage = speedDiffPerHr / v1; // 18%
+	const leadDiffInTime = (g / v2) * 60; // .082 of an hour
+	const newV1Distance = v1 * leadDiffInTime; // 720 * 0.082 129
+
+	let v1Distance = newV1Distance;
+	let v2Distance = g;
+
+	while (v1Distance !== v2Distance) {
+		v1Distance += 1;
+		v2Distance += 1.18;
+	}
+
+	let v2DistanceToTime = v2Distance / v2;
 }
